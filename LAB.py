@@ -1,10 +1,14 @@
 import csv
 import os
+
+
 def printmatr(matr):
     for i in range(len(matr)):
         print()
         for el in matr[i]:
-            print( el, end=" ")
+            print(el, end=" ")
+
+
 countries = []
 lst = os.listdir("D:\eurovis")
 for i in range(len(lst)):
@@ -20,14 +24,22 @@ del countries[10]
 for i in range(len(countries)):
     for j in range(1, len(countries[i])):
         countries[i][j] = int(countries[i][j])
-def countochki(matrcountr):
+
+
+def voice_of_day(matrcountr):
     c = []
     for i in range(1, len(matrcountr[0])):
         c.append([])
     for i in range(1, len(matrcountr)+1):
-        for j in range( len(matrcountr)):
+        for j in range(len(matrcountr)):
             c[i-1].append(matrcountr[j][i])
     return c
-#printmatr(countochki(countries))
-#print()
-#printmatr(countries)
+
+
+def sort_voice_of_day(matrvoice):
+    for i in range(len(matrvoice)):
+        matrvoice[i].sort(reverse=True)
+    return matrvoice
+
+
+
