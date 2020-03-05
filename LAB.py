@@ -6,9 +6,9 @@ def printmatr(matr):
         for el in matr[i]:
             print( el, end=" ")
 countries = []
-lst = os.listdir("D:\git\LABIK-KRABIK2.0\eurovis")
+lst = os.listdir("D:\eurovis")
 for i in range(len(lst)):
-    os.chdir(r"D:\git\LABIK-KRABIK2.0\eurovis")
+    os.chdir(r"D:\eurovis")
     with open(lst[i]) as file:
         read = csv.reader(file)
         for row in read:
@@ -17,11 +17,17 @@ for i in range(len(lst)):
 del countries[0]
 del countries[10]
 #printmatr(countries)
-donematrix=[]
 for i in range(len(countries)):
-    tmp=[]
-    tmp += [countries[i][0]]
-    for j in range(1,len(countries[0])):
-        tmp+=[int(countries[i][j])]
-    donematrix+=[tmp]
-printmatr(donematrix)
+    for j in range(1, len(countries[i])):
+        countries[i][j] = int(countries[i][j])
+def countochki(matrcountr):
+    c = []
+    for i in range(1, len(matrcountr[0])):
+        c.append([])
+    for i in range(1, len(matrcountr)+1):
+        for j in range( len(matrcountr)):
+            c[i-1].append(matrcountr[j][i])
+    return c
+#printmatr(countochki(countries))
+#print()
+#printmatr(countries)
