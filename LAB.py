@@ -97,11 +97,14 @@ def sort(matrcountr):
     for i in range(len(matrcountr)):
         for j in range(1):
             newmatrcountr[i][j+1] = sortarr[i]
-    for i in range(len(newmatrcountr)):
-        for j in range(1):
-            newmatrcountr[i] = newmatrcountr[i][0] + "," + str(newmatrcountr[i][1])
     return newmatrcountr
 
 
 newmatrcountr = sort(pointscountr)
-printmatr(newmatrcountr)
+newmatrcountr = newmatrcountr[:10]
+os.chdir(r"D:\results")
+filename = "results.csv"
+with open(filename, "w", newline="") as file:
+    write = csv.writer(file)
+    write.writerows(newmatrcountr)
+
