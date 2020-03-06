@@ -41,5 +41,15 @@ def sort_voice_of_day(matrvoice):
         matrvoice[i].sort(reverse=True)
     return matrvoice
 
+def points_and_countries(matrcountr):
+    pointcountrmass = []
+    for j in range(len(matrcountr)-1):
+        pointcountrmass.append([])
+    for i in range(len(pointcountrmass)):
+        for j in range(1):
+            pointcountrmass[i].append(matrcountr[i][j])
+            pointcountrmass[i].append([])
+    return pointcountrmass
+print(points_and_countries(countries))
 
 
