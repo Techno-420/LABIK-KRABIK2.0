@@ -3,9 +3,8 @@ import os
 
 
 def printmatr(matr):
-    for i in range(len(matr)):
-        print()
-        for el in matr[i]:
+        for el in matr:
+            print()
             print(el, end=" ")
 
 
@@ -34,11 +33,9 @@ def points_and_countries(matrcountr):
             pointcountrmass[i].append(matrcountr[i][j])
             pointcountrmass[i].append(0)
     return pointcountrmass
+
+
 pointscountr = points_and_countries(countries)
-
-
-
-printmatr(countries)
 
 
 def voice_of_day(matrcountr):
@@ -76,11 +73,35 @@ def count_points(matrcountr, pointsandcountr, sortmatr):
                 pointsandcountr[maxelindI][1] += 12
             elif l == 1:
                 pointsandcountr[maxelindI][1] += 10
-            elif l>=2 and l<=9:
+            elif (l >= 2) and (l <= 9):
                 pointsandcountr[maxelindI][1] += point
         point -= 1
     return pointsandcountr
 
 
 pointscountr = count_points(countries, pointscountr, sortmatrx)
-printmatr(pointscountr)
+
+
+def sort(matrcountr):
+    newmatrcountr = []
+    sortarr = []
+    for i in range(len(matrcountr)):
+        for j in range(1):
+            sortarr.append(matrcountr[i][j+1])
+    sortarr.sort(reverse=True)
+    for i in range(len(matrcountr)):
+        for j in range(len(sortarr)):
+            if matrcountr[j][1] == sortarr[i]:
+                newmatrcountr.append(matrcountr[j])
+                matrcountr[j][1] = 0
+    for i in range(len(matrcountr)):
+        for j in range(1):
+            newmatrcountr[i][j+1] = sortarr[i]
+    for i in range(len(newmatrcountr)):
+        for j in range(1):
+            newmatrcountr[i] = newmatrcountr[i][0] + "," + str(newmatrcountr[i][1])
+    return newmatrcountr
+
+
+newmatrcountr = sort(pointscountr)
+printmatr(newmatrcountr)
