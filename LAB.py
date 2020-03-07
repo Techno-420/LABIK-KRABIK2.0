@@ -2,12 +2,6 @@ import csv
 import os
 
 
-def printmatr(matr):
-        for el in matr:
-            print()
-            print(el, end=" ")
-
-
 countries = []
 name = str(input("Введите путь к папке:"))
 lst = os.listdir(name)
